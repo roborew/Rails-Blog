@@ -1,0 +1,19 @@
+<%= form_with model: @article do |form| %>
+  <% if form.object.errors.any? %>
+    <h2>Form is invalid</h2>
+    <ul>
+      <% form.object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+  <%= form.button %>
+<% end %>
