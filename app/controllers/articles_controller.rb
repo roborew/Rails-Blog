@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = user_signed_in? ? Article.sorted : Article.sorted.published
+    @pagy, @articles = pagy(@articles)
   end
 
   def show
