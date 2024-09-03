@@ -2,6 +2,14 @@
 <% @articles.each do |article| %>
   <div>
     <h2><%= link_to article.title, article_path(article.id) %></h2>
+    <% if article.draft? %>
+      <div class="p-2 rounded bg-gray-100 text-gray-900">Draft</div>
+    <% elsif article.scheduled? %>
+      <div class="p-2 rounded bg-blue-100 text-blue-900">Scheduled</div>
+    <% elsif article.published? %>
+      <div class="p-2 rounded bg-green-100 text-gray-900">Published</div>
+    <% end %>
     <p><%= article.body %></p>
   </div>
 <% end %>
+
