@@ -5,6 +5,12 @@ class ArticlesController < ApplicationController
   def index
     @articles = user_signed_in? ? Article.sorted : Article.sorted.published
     @pagy, @articles = pagy(@articles)
+  rescue Pagy::OverflowError
+    # Redirect to page 1
+    # redirect_to root_path(page: 1)
+    # Retry but with correct page number, keeps page number
+    params[:page] = 1
+    retry
   end
 
   def show
