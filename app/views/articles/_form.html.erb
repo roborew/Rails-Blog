@@ -1,4 +1,4 @@
-<%= form_with model: @article do |form| %>
+<%= form_with model: article do |form| %>
   <% if form.object.errors.any? %>
     <h2>Form is invalid</h2>
     <ul>
@@ -10,6 +10,17 @@
   <div>
     <%= form.label :title %>
     <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :cover_image %>
+
+    <% if article.cover_image.present? %>
+      <div id="<%= dom_id(article, :cover_image) %>">
+        <%= image_tag article.cover_image, alt: "Cover Image", size: 200 %>
+        <%= link_to "Remove cover image", article_cover_image_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
+    <%= form.file_field :cover_image %>
   </div>
   <div>
     <%= form.label :content %>

@@ -1,4 +1,4 @@
 <h1>Edit Article</h1>
 
-<%= render partial: "form", locales: { article: @article } %>
+<%= render partial: "form", locals: { article: @article } %>
 <%= button_to "Delete", @article, method: :delete, data: { turbo_confirm: "Are you sure?" } %>

@@ -9,6 +9,9 @@
     <% elsif article.published? %>
       <div class="p-2 rounded bg-green-100 text-gray-900">Published</div>
     <% end %>
+    <% if article.cover_image.present? %>
+      <%= image_tag article.cover_image, alt: "Cover Image" %>
+    <% end %>
     <p><%= article.content %></p>
   </div>
 <% end %>

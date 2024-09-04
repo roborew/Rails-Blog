@@ -7,10 +7,10 @@ class ArticlesController < ApplicationController
     @pagy, @articles = pagy(@articles)
   rescue Pagy::OverflowError
     # Redirect to page 1
-    # redirect_to root_path(page: 1)
+    redirect_to root_path(page: 1)
     # Retry but with correct page number, keeps page number
-    params[:page] = 1
-    retry
+    # params[:page] = 1
+    # retry
   end
 
   def show
@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content, :published_at)
+    params.require(:article).permit(:title, :content, :published_at, :cover_image)
   end
 
   def set_article

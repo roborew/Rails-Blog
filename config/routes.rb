@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  resources :articles
+  resources :articles do
+    resource :cover_image, only: :destroy, module: :articles
+  end
 
   # get "/articles/new", to: "articles#new", as: :new_article
   # get "/articles/:id", to: "articles#show", as: :article
