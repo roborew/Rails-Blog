@@ -6,7 +6,7 @@ class ArticleTest < ActiveSupport::TestCase
   end
 
   test "draft? returns false for published article" do
-    refute articles(:published).draft
+    refute articles(:published).draft?
   end
 
   test "draft? returns false for scheduled article" do
