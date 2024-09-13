@@ -14,7 +14,7 @@ user.update!(
   password_confirmation: "password",
 )
 
-100.times do |i|
-  article = Article.where(title: "Article #{i}").first_or_initialize
-  article.update!(content: "Content #{i}", published_at: Time.current)
-end
+# 100.times do |i|
+#   article = Article.where(title: "Article #{i}").first_or_initialize
+#   article.update!(content: "Content #{i}", published_at: Time.current)
+# end
