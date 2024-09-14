@@ -43,6 +43,12 @@ gem "pagy", "~> 9.0"
 
 gem 'dotenv-rails', groups: [:development, :test, :production]
 
+# Use Active Storage variant
+gem 'image_processing', '~> 1.2'
+
+# So we can upload files to Digital Ocean Spaces (S3-compatible)
+gem "aws-sdk-s3", require: false
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
